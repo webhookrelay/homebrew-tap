@@ -11,10 +11,12 @@ class Relay < Formula
 
   depends_on "go" => :build
 
-  def install
-    ENV["GOPATH"] = buildpath
+  def install    
     mkdir_p "src/github.com/webhookrelay"
     ln_s buildpath, "src/github.com/webhookrelay/client"
+
+    ENV["GOPATH"] = "#{buildpath}/vendor"
+
     system "make build"
     bin.install "cmd/relay/relay"
   end
