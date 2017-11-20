@@ -4,8 +4,8 @@ class Relay < Formula
   desc "Client for Webhook Relay service - receive webhooks behind firewalls and NAT"
   homepage "https://webhookrelay.com"
   url "https://github.com/webhookrelay/client.git",
-    :tag => "0.4.0",
-    :revision => "8d931a198badb35b6319c17aedff67785ad35f50"
+    :tag => "0.4.1",
+    :revision => "7b3196cabdd87a54f12e18137db5ab40f5a6cdce"
 
   head "https://github.com/webhookrelay/client.git"
 
