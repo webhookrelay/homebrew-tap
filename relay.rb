@@ -1,30 +1,15 @@
-require "language/go"
-
 class Relay < Formula  
-  desc "Client for Webhook Relay service - receive webhooks behind firewalls and NAT"
+  desc "Client for Webhook Relay service - demo websites from localhost and receive webhooks behind firewalls and NAT"
   homepage "https://webhookrelay.com"
-  url "https://github.com/webhookrelay/client.git",
-    :tag => "0.5.5",
-    :revision => "c30d2f93a3c220f3a77220fef3879bf0cd48f912"
-
-  head "https://github.com/webhookrelay/client.git"
-
-  depends_on "go" => :build
+  url "https://storage.googleapis.com/webhookrelay/downloads/relay-darwin-amd64"
+  sha256 "d891366f0f137427caabab2fb0b26451b56eb45aee02a5c37beabea8bcf640a3"
 
   def install    
-    contents = Dir["{*,.git,.gitignore}"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/webhookrelay/client").install contents
-    ENV["GOPATH"] = gopath
-    ENV.prepend_create_path "PATH", gopath/"bin"
-
-    cd gopath/"src/github.com/webhookrelay/client" do
-        system "make", "build"
-        bin.install "cmd/relay/relay"        
-    end
+    mv "relay-darwin-amd64", "relay"
+    bin.install "relay"
   end
 
   test do
-    system "#{bin}/relay", "--help"
+    system "#{bin}/relay", "--version"
   end
 end
