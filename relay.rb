@@ -2,7 +2,7 @@ class Relay < Formula
   desc "Client for Webhook Relay service - demo websites from localhost and receive webhooks behind firewalls and NAT"
   homepage "https://webhookrelay.com"
   url "https://storage.googleapis.com/webhookrelay/downloads/relay-darwin-amd64"
-  sha256 "06e763637d7ec16eecb8e3046a12700be54b1b80db59a46c18bb0e242d9fcad2"
+  sha256 "1eb3ce2b50b0ce456de68dcbc3e6ec535bfb63969f831380804fc74c1dcfe45a"
 
   def install    
     mv "relay-darwin-amd64", "relay"
